@@ -310,6 +310,83 @@ footer {
 </footer>
 
 <script>
+function runAICommand() {
+  const field = document.getElementById("aiCommand");
+  const output = document.getElementById("aiResponse");
+  const command = field.value.trim().toLowerCase();
+
+  if (!command) {
+    output.textContent = "Enter a command first.";
+    return;
+  }
+
+  const missionCount = data.missions.length;
+  const achievementCount = data.achievements.length;
+  const archiveCount = data.archive.length;
+  const abilityCount = data.abilities.length;
+
+  let response = "I can analyse saved missions, achievements, archive entries and ability proposals. Try: analyse my progress, show my weaknesses, or create my next mission.";
+
+  if (command.includes("weakness")) {
+    response = "I cannot reliably identify your skill weaknesses yet. The prototype does not contain your full skill profiles or supporting evidence.";
+
+  } else if (
+    command.includes("progress") ||
+    command.includes("summary") ||
+    command.includes("analyse") ||
+    command.includes("analyze")
+  ) {
+    response =
+      "LOCAL RECORD ANALYSIS\n\n" +
+      "Missions recorded: " + missionCount +
+      "\nAchievements recorded: " + achievementCount +
+      "\nBrain Archive entries: " + archiveCount +
+      "\nAbility proposals: " + abilityCount +
+      "\n\nThis analysis only covers records saved in this browser.";
+
+  } else if (
+    command.includes("mission") &&
+    (
+      command.includes("create") ||
+      command.includes("next") ||
+      command.includes("recommend")
+    )
+  ) {
+    const title = "Review and evidence one development priority";
+    const description =
+      "Choose one skill you want to improve. Record your current level and supporting evidence, then define one measurable action to practise this week. Submit the result for review.";
+
+    data.missions.unshift({
+      title: title,
+      description: description,
+      status: "Available"
+    });
+
+    save();
+    render();
+
+    response =
+      "MISSION ADDED\n\n" +
+      title + "\n\n" +
+      description +
+      "\n\nStatus: Available. This is not a completed mission. No XP awarded.";
+
+  } else if (
+    command.includes("unlock") ||
+    command.includes("evolve")
+  ) {
+    response = "PLAYER APPROVAL REQUIRED. I can assess and recommend Brain Tree evolutions, but only you can approve or activate an unlock.";
+
+  } else if (
+    command.includes("xp") ||
+    command.includes("level")
+  ) {
+    response = "Progression is not yet connected to live mission evidence. The dashboard's Level 04 and 515 XP are display values. This command engine will not change them.";
+  }
+
+  output.textContent = response;
+}
+
 const defaults = {
   archive: [],
   missions: [],
