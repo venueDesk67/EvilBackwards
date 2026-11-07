@@ -1,1 +1,404 @@
-index
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d20">
+<title>LIFE OS67</title>
+<style>
+:root {
+  --bg:#100d20;
+  --panel:#1b1630;
+  --panel2:#241d3d;
+  --gold:#d9b66d;
+  --purple:#9474d8;
+  --text:#f4f0ff;
+  --muted:#aaa2bc;
+  --border:#38304f;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+}
+header {
+  padding:22px 18px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo {color:var(--gold);font-weight:bold;letter-spacing:3px}
+.version {color:var(--muted);font-size:11px}
+main {max-width:950px;margin:auto;padding:18px}
+h1 {font-size:26px;margin:10px 0 5px}
+h2 {font-size:19px;color:var(--gold)}
+h3 {font-size:15px}
+p {color:var(--muted);line-height:1.5}
+.panel {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:17px;
+  margin:13px 0;
+}
+.hero {
+  background:linear-gradient(130deg,#30214c,#191329);
+  border-color:#69528f;
+}
+.level {
+  font-size:38px;
+  color:var(--gold);
+  font-weight:bold;
+}
+.xpbar {
+  height:9px;
+  background:#393149;
+  border-radius:20px;
+  overflow:hidden;
+  margin:12px 0;
+}
+.xpfill {
+  height:100%;
+  background:var(--gold);
+  width:73.57%;
+}
+.stats {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.stat {
+  background:var(--panel2);
+  padding:13px;
+  border-radius:9px;
+}
+.stat strong {
+  display:block;
+  font-size:23px;
+  color:var(--gold);
+  margin-top:6px;
+}
+nav {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+  margin:18px 0;
+}
+button {
+  background:var(--panel2);
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:13px;
+  color:var(--text);
+  font-size:13px;
+  cursor:pointer;
+}
+button:hover {border-color:var(--gold)}
+button.active {
+  background:#40305d;
+  border-color:var(--gold);
+}
+.primary {
+  background:#60478d;
+  border-color:var(--purple);
+}
+input,textarea,select {
+  width:100%;
+  background:#110e20;
+  border:1px solid var(--border);
+  color:var(--text);
+  border-radius:8px;
+  padding:12px;
+  margin:7px 0 12px;
+  font:inherit;
+}
+label {font-size:12px;color:var(--muted)}
+.item {
+  border-bottom:1px solid var(--border);
+  padding:12px 0;
+}
+.item:last-child {border:0}
+.small {font-size:11px;color:var(--muted)}
+.tag {
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:5px;
+  background:#35294d;
+  color:#d5c3ff;
+  font-size:10px;
+}
+.section {display:none}
+.section.active {display:block}
+footer {
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  padding:30px 10px;
+}
+@media(min-width:650px) {
+  nav {grid-template-columns:repeat(3,1fr)}
+  .stats {grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">LIFE OS67</div>
+  <div class="version">PERSONAL DEVELOPMENT SYSTEM · V0.1</div>
+</header>
+
+<main>
+<section id="dashboard" class="section active">
+  <p>YOUR WORLD. YOUR PROGRESSION.</p>
+  <h1>Welcome to your operating system.</h1>
+  <div class="panel hero">
+    <div class="small">CURRENT PLAYER LEVEL</div>
+    <div class="level">LEVEL 04</div>
+    <p>Progression is earned through evidence and completed missions.</p>
+    <div class="xpbar"><div class="xpfill"></div></div>
+    <strong>515 / 700 XP</strong>
+    <p>185 XP until Level 05</p>
+  </div>
+  <div class="stats">
+    <div class="stat">Brain Tree<strong>7</strong><span class="small">Proposed branches</span></div>
+    <div class="stat">Skills<strong>80</strong><span class="small">Recorded profiles</span></div>
+    <div class="stat">Average<strong>61.8</strong><span class="small">Self-assessed</span></div>
+    <div class="stat">Missions<strong>7</strong><span class="small">Completed designs</span></div>
+  </div>
+  <div class="panel">
+    <h2>System principles</h2>
+    <p>Evidence before progression. Development before recognition. Player authority before AI decisions.</p>
+    <span class="tag">PLAYER CONTROLLED</span>
+    <span class="tag">BALANCED PROGRESSION</span>
+  </div>
+</section>
+
+<section id="archive" class="section">
+  <h2>01 · Brain Archive</h2>
+  <p>Your central knowledge and development record.</p>
+  <div class="panel">
+    <label>ARCHIVE ENTRY TITLE</label>
+    <input id="archiveTitle" placeholder="What have you learned?">
+    <label>DETAILS</label>
+    <textarea id="archiveBody" rows="4" placeholder="Record knowledge, evidence or observations..."></textarea>
+    <button class="primary" onclick="addArchive()">Save archive entry</button>
+  </div>
+  <div class="panel">
+    <h3>Saved knowledge</h3>
+    <div id="archiveList"></div>
+  </div>
+</section>
+
+<section id="tree" class="section">
+  <h2>02 · Brain Tree</h2>
+  <p>Your abilities develop through evidence. Nothing unlocks without your approval.</p>
+  <div id="treeList"></div>
+  <div class="panel">
+    <h3>Propose a new ability</h3>
+    <input id="abilityName" placeholder="Ability name">
+    <input id="abilityBranch" placeholder="Branch">
+    <button class="primary" onclick="proposeAbility()">Submit proposal</button>
+  </div>
+  <div class="panel">
+    <h3>Unlock authority</h3>
+    <p>The AI can assess and recommend. Only the player can approve an unlock.</p>
+  </div>
+</section>
+
+<section id="missions" class="section">
+  <h2>03 · Mission Centre</h2>
+  <p>Turn ambitions into measurable missions.</p>
+  <div class="panel">
+    <label>MISSION TITLE</label>
+    <input id="missionTitle" placeholder="Enter mission">
+    <label>MISSION DESCRIPTION</label>
+    <textarea id="missionDescription" rows="3" placeholder="What needs to be achieved?"></textarea>
+    <button class="primary" onclick="addMission()">Create mission</button>
+  </div>
+  <div class="panel">
+    <h3>Your missions</h3>
+    <div id="missionList"></div>
+  </div>
+</section>
+
+<section id="achievements" class="section">
+  <h2>04 · Achievement Archive</h2>
+  <p>A record of completed work and demonstrated outcomes.</p>
+  <div class="panel">
+    <label>ACHIEVEMENT</label>
+    <input id="achievementTitle" placeholder="Achievement title">
+    <label>EVIDENCE</label>
+    <textarea id="achievementEvidence" rows="3" placeholder="What proves this achievement?"></textarea>
+    <button class="primary" onclick="addAchievement()">Record achievement</button>
+  </div>
+  <div class="panel"><div id="achievementList"></div></div>
+</section>
+
+<section id="evolution" class="section">
+  <h2>05 · Evolution Chamber</h2>
+  <p>Explore potential improvements and future development.</p>
+  <div class="panel">
+    <h3>Evolution proposals</h3>
+    <div id="evolutionList">
+      <div class="item">Execution Intelligence — develop consistent action.</div>
+      <div class="item">Communication Intelligence — improve message effectiveness.</div>
+      <div class="item">Potential Discovery — identify emerging capabilities.</div>
+    </div>
+    <p class="small">Proposals are not activated abilities.</p>
+  </div>
+</section>
+
+<section id="ai" class="section">
+  <h2>06 · Matt's Level AI</h2>
+  <p>Your development architect and analytical assistant.</p>
+  <div class="panel">
+    <h3>AI operating principles</h3>
+    <div class="item">01 · Analyse evidence, not assumptions.</div>
+    <div class="item">02 · Identify strengths and development gaps.</div>
+    <div class="item">03 · Recommend missions and progression.</div>
+    <div class="item">04 · Preserve player control.</div>
+    <div class="item">05 · Never invent completed work.</div>
+  </div>
+  <div class="panel">
+    <h3>Development note</h3>
+    <textarea id="aiNote" rows="4" placeholder="What should the AI analyse next?"></textarea>
+    <button class="primary" onclick="saveNote()">Save development note</button>
+    <p id="noteStatus" class="small"></p>
+  </div>
+</section>
+
+<nav>
+  <button class="active" onclick="showSection('dashboard',this)">Dashboard</button>
+  <button onclick="showSection('archive',this)">Brain Archive</button>
+  <button onclick="showSection('tree',this)">Brain Tree</button>
+  <button onclick="showSection('missions',this)">Mission Centre</button>
+  <button onclick="showSection('achievements',this)">Achievements</button>
+  <button onclick="showSection('evolution',this)">Evolution</button>
+  <button onclick="showSection('ai',this)">Matt's Level AI</button>
+</nav>
+</main>
+
+<footer>
+  LIFE OS67 · BUILD YOUR POTENTIAL · VERSION 0.1
+  <br>Local browser storage enabled
+</footer>
+
+<script>
+const defaults = {
+  archive: [],
+  missions: [],
+  achievements: [],
+  abilities: [],
+  note: ""
+};
+
+let data;
+try {
+  data = JSON.parse(localStorage.getItem("lifeos67")) || defaults;
+} catch {
+  data = defaults;
+}
+data = {...defaults,...data};
+
+function save() {
+  localStorage.setItem("lifeos67",JSON.stringify(data));
+}
+
+function showSection(id,button) {
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+  if(button) button.classList.add("active");
+}
+
+function addArchive() {
+  const title=document.getElementById("archiveTitle").value.trim();
+  const body=document.getElementById("archiveBody").value.trim();
+  if(!title) return alert("Enter a title first.");
+  data.archive.unshift({title,body,date:new Date().toLocaleString()});
+  save();render();
+  document.getElementById("archiveTitle").value="";
+  document.getElementById("archiveBody").value="";
+}
+
+function addMission() {
+  const title=document.getElementById("missionTitle").value.trim();
+  const description=document.getElementById("missionDescription").value.trim();
+  if(!title) return alert("Enter a mission title.");
+  data.missions.unshift({title,description,status:"Available"});
+  save();render();
+  document.getElementById("missionTitle").value="";
+  document.getElementById("missionDescription").value="";
+}
+
+function addAchievement() {
+  const title=document.getElementById("achievementTitle").value.trim();
+  const evidence=document.getElementById("achievementEvidence").value.trim();
+  if(!title||!evidence) return alert("Enter an achievement and its evidence.");
+  data.achievements.unshift({title,evidence,date:new Date().toLocaleString()});
+  save();render();
+  document.getElementById("achievementTitle").value="";
+  document.getElementById("achievementEvidence").value="";
+}
+
+function proposeAbility() {
+  const name=document.getElementById("abilityName").value.trim();
+  const branch=document.getElementById("abilityBranch").value.trim();
+  if(!name) return alert("Enter an ability name.");
+  data.abilities.push({name,branch,status:"Proposed"});
+  save();render();
+  document.getElementById("abilityName").value="";
+  document.getElementById("abilityBranch").value="";
+}
+
+function saveNote() {
+  data.note=document.getElementById("aiNote").value;
+  save();
+  document.getElementById("noteStatus").textContent="Saved locally.";
+}
+
+function safe(value) {
+  return String(value||"").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[c]);
+}
+
+function render() {
+  document.getElementById("archiveList").innerHTML=data.archive.map(x=>
+    `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.body)}</p><span class="small">${safe(x.date)}</span></div>`
+  ).join("")||"<p>No entries yet.</p>";
+
+  document.getElementById("missionList").innerHTML=data.missions.map((x,i)=>
+    `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.description)}</p><span class="tag">${safe(x.status)}</span><br><button onclick="missionStatus(${i})">Change status</button></div>`
+  ).join("")||"<p>No missions created yet.</p>";
+
+  document.getElementById("achievementList").innerHTML=data.achievements.map(x=>
+    `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.evidence)}</p><span class="small">${safe(x.date)}</span></div>`
+  ).join("")||"<p>No achievements recorded yet.</p>";
+
+  document.getElementById("treeList").innerHTML=data.abilities.map(x=>
+    `<div class="item"><strong>${safe(x.name)}</strong><p>${safe(x.branch)}</p><span class="tag">${safe(x.status)}</span></div>`
+  ).join("")||"<p>No additional ability proposals yet.</p>";
+
+  document.getElementById("aiNote").value=data.note;
+}
+
+function missionStatus(i) {
+  const statuses=["Available","Accepted","In Progress","Submitted for Review","Completed","Rejected","Archived"];
+  const current=statuses.indexOf(data.missions[i].status);
+  const next=prompt("Enter next status:\n"+statuses.join(", "),statuses[(current+1)%statuses.length]);
+  if(statuses.includes(next)) {
+    data.missions[i].status=next;
+    save();render();
+  }
+}
+
+render();
+</script>
+</body>
+</html>
