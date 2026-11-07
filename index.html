@@ -4,18 +4,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100d20">
+<meta name="theme-color" content="#ffffff">
 <title>LIFE OS67</title>
+
 <style>
 :root {
-  --bg:#100d20;
-  --panel:#1b1630;
-  --panel2:#241d3d;
-  --gold:#d9b66d;
-  --purple:#9474d8;
-  --text:#f4f0ff;
-  --muted:#aaa2bc;
-  --border:#38304f;
+  --bg:#f5f3ee;
+  --white:#ffffff;
+  --gold:#aa812f;
+  --gold-light:#f5edda;
+  --text:#29261f;
+  --muted:#777267;
+  --border:#e6dfd0;
 }
 * {box-sizing:border-box}
 body {
@@ -25,29 +25,46 @@ body {
   font-family:Arial,sans-serif;
 }
 header {
-  padding:22px 18px;
-  border-bottom:1px solid var(--border);
+  background:white;
+  padding:20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:10;
 }
-.logo {color:var(--gold);font-weight:bold;letter-spacing:3px}
-.version {color:var(--muted);font-size:11px}
-main {max-width:950px;margin:auto;padding:18px}
-h1 {font-size:26px;margin:10px 0 5px}
-h2 {font-size:19px;color:var(--gold)}
-h3 {font-size:15px}
+.logo {
+  color:var(--gold);
+  font-size:20px;
+  font-weight:bold;
+  letter-spacing:3px;
+}
+.version {font-size:10px;color:var(--muted)}
+main {max-width:1100px;margin:auto;padding:18px 15px 35px}
+h1 {font-size:30px;margin:10px 0;color:var(--text)}
+h2 {font-size:20px;color:var(--gold)}
+h3 {font-size:16px}
 p {color:var(--muted);line-height:1.5}
+.small {font-size:11px;color:var(--muted)}
+.kicker {
+  color:var(--gold);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
 .panel {
-  background:var(--panel);
+  background:white;
   border:1px solid var(--border);
-  border-radius:13px;
+  border-radius:15px;
   padding:17px;
-  margin:13px 0;
+  margin:14px 0;
+  box-shadow:0 3px 12px #382d1408;
 }
 .hero {
-  background:linear-gradient(130deg,#30214c,#191329);
-  border-color:#69528f;
+  background:linear-gradient(120deg,#fffdf8,#f3ead5);
+  border:1px solid #d8c28f;
 }
 .level {
   font-size:38px;
@@ -56,15 +73,15 @@ p {color:var(--muted);line-height:1.5}
 }
 .xpbar {
   height:9px;
-  background:#393149;
+  background:#e9e3d7;
   border-radius:20px;
   overflow:hidden;
   margin:12px 0;
 }
 .xpfill {
   height:100%;
-  background:var(--gold);
   width:73.57%;
+  background:linear-gradient(90deg,#aa812f,#e0c47f);
 }
 .stats {
   display:grid;
@@ -72,162 +89,353 @@ p {color:var(--muted);line-height:1.5}
   gap:10px;
 }
 .stat {
-  background:var(--panel2);
-  padding:13px;
-  border-radius:9px;
+  background:#fbf9f4;
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:12px;
+  font-size:12px;
+  color:var(--muted);
 }
 .stat strong {
   display:block;
-  font-size:23px;
   color:var(--gold);
-  margin-top:6px;
+  font-size:25px;
+  margin:6px 0;
 }
 nav {
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:9px;
+  gap:8px;
+  background:white;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:14px;
   margin:18px 0;
 }
 button {
-  background:var(--panel2);
-  border:1px solid var(--border);
-  border-radius:9px;
-  padding:13px;
+  background:white;
   color:var(--text);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
   font-size:13px;
+  font-weight:bold;
   cursor:pointer;
 }
-button:hover {border-color:var(--gold)}
 button.active {
-  background:#40305d;
+  background:var(--gold-light);
+  color:#79591e;
   border-color:var(--gold);
 }
-.primary {
-  background:#60478d;
-  border-color:var(--purple);
+button.primary {
+  background:var(--gold);
+  color:white;
+  border-color:var(--gold);
 }
-input,textarea,select {
+input,textarea {
   width:100%;
-  background:#110e20;
-  border:1px solid var(--border);
-  color:var(--text);
-  border-radius:8px;
   padding:12px;
-  margin:7px 0 12px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  margin:7px 0 13px;
   font:inherit;
+  background:white;
+  color:var(--text);
 }
-label {font-size:12px;color:var(--muted)}
+label {
+  font-size:11px;
+  color:var(--muted);
+  font-weight:bold;
+}
+.section {display:none}
+.section.active {display:block}
+.tag {
+  display:inline-block;
+  background:var(--gold-light);
+  color:#79591e;
+  padding:5px 9px;
+  border-radius:5px;
+  font-size:10px;
+  margin:3px;
+}
 .item {
   border-bottom:1px solid var(--border);
   padding:12px 0;
 }
 .item:last-child {border:0}
-.small {font-size:11px;color:var(--muted)}
-.tag {
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:5px;
-  background:#35294d;
-  color:#d5c3ff;
-  font-size:10px;
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
 }
-.section {display:none}
-.section.active {display:block}
+.card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:14px;
+  text-align:left;
+  width:100%;
+}
+.card strong {
+  display:block;
+  margin-bottom:7px;
+}
+.card span {
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.5;
+}
+.skill-level {
+  color:var(--gold);
+  font-size:23px;
+  font-weight:bold;
+  margin:8px 0;
+}
+.skill-track {
+  height:6px;
+  background:#eee8dc;
+  border-radius:8px;
+  overflow:hidden;
+}
+.skill-track i {
+  display:block;
+  height:100%;
+  background:var(--gold);
+}
+.connection {
+  border-left:2px solid #c5a45f;
+  margin-left:12px;
+  padding-left:15px;
+}
+.node {
+  background:#faf7ef;
+  border:1px solid #e7dec9;
+  padding:12px;
+  border-radius:10px;
+  margin:8px 0;
+}
 footer {
   text-align:center;
   color:var(--muted);
   font-size:11px;
-  padding:30px 10px;
+  padding:25px;
 }
-@media(min-width:650px) {
-  nav {grid-template-columns:repeat(3,1fr)}
+@media(min-width:700px) {
   .stats {grid-template-columns:repeat(4,1fr)}
+  nav {grid-template-columns:repeat(5,1fr);position:static}
+  .grid {grid-template-columns:repeat(3,1fr)}
 }
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="logo">LIFE OS67</div>
-  <div class="version">PERSONAL DEVELOPMENT SYSTEM · V0.1</div>
+  <div class="version">YOUR PERSONAL OPERATING SYSTEM</div>
 </header>
 
 <main>
+
+<!-- DASHBOARD -->
+
 <section id="dashboard" class="section active">
-  <p>YOUR WORLD. YOUR PROGRESSION.</p>
-  <h1>Welcome to your operating system.</h1>
+  <div class="kicker">YOUR WORLD · YOUR PROGRESSION</div>
+  <h1>Welcome back.</h1>
+  <p>Your life. Your abilities. Your development.</p>
+
   <div class="panel hero">
     <div class="small">CURRENT PLAYER LEVEL</div>
     <div class="level">LEVEL 04</div>
-    <p>Progression is earned through evidence and completed missions.</p>
+    <p>Progression through learning, evidence and achievement.</p>
     <div class="xpbar"><div class="xpfill"></div></div>
     <strong>515 / 700 XP</strong>
     <p>185 XP until Level 05</p>
-  </div>
-  <div class="stats">
-    <div class="stat">Brain Tree<strong>7</strong><span class="small">Proposed branches</span></div>
-    <div class="stat">Skills<strong>80</strong><span class="small">Recorded profiles</span></div>
-    <div class="stat">Average<strong>61.8</strong><span class="small">Self-assessed</span></div>
-    <div class="stat">Missions<strong>7</strong><span class="small">Completed designs</span></div>
-  </div>
-  <div class="panel">
-    <h2>System principles</h2>
-    <p>Evidence before progression. Development before recognition. Player authority before AI decisions.</p>
     <span class="tag">PLAYER CONTROLLED</span>
-    <span class="tag">BALANCED PROGRESSION</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat">Brain Tree<strong>7</strong>Proposed branches</div>
+    <div class="stat">Skills<strong>80</strong>Recorded profiles</div>
+    <div class="stat">Average<strong>61.8</strong>Self-assessed</div>
+    <div class="stat">Missions<strong>7</strong>Completed designs</div>
+  </div>
+
+  <div class="panel">
+    <div class="kicker">QUICK ACCESS</div>
+    <h2>Open your world</h2>
+    <div class="grid">
+      <button class="card" onclick="showSection('profile')">
+        <strong>Player Profile</strong>
+        <span>Your levels and attributes</span>
+      </button>
+      <button class="card" onclick="showSection('lifemap')">
+        <strong>Life Map</strong>
+        <span>Your complete development structure</span>
+      </button>
+      <button class="card" onclick="showSection('connections')">
+        <strong>Connections</strong>
+        <span>How everything links together</span>
+      </button>
+      <button class="card" onclick="showSection('tree')">
+        <strong>Brain Tree</strong>
+        <span>Your branches and abilities</span>
+      </button>
+      <button class="card" onclick="showSection('missions')">
+        <strong>Mission Centre</strong>
+        <span>Your development missions</span>
+      </button>
+      <button class="card" onclick="showSection('ai')">
+        <strong>Matt's Level AI</strong>
+        <span>Your personal development architect</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Our principles</h2>
+    <p>Evidence before progression. Development before recognition. Player authority before AI decisions.</p>
   </div>
 </section>
+
+<!-- PLAYER PROFILE -->
+
+<section id="profile" class="section">
+  <div class="kicker">PLAYER CENTRE</div>
+  <h1>Player Profile</h1>
+  <p>Your personal development record.</p>
+
+  <div class="panel">
+    <h2>Progression</h2>
+    <div class="level">LEVEL 04</div>
+    <strong>515 / 700 XP</strong>
+    <div class="xpbar"><div class="xpfill"></div></div>
+    <p>Historical design XP. Not live mission scoring.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Profile overview</h2>
+    <div class="item">Recorded skill profiles: <strong>80</strong></div>
+    <div class="item">Overall self-assessed average: <strong>61.8 / 100</strong></div>
+    <div class="item">Progression style: <strong>Balanced</strong></div>
+    <div class="item">Unlock authority: <strong>Player only</strong></div>
+  </div>
+
+  <div class="panel">
+    <h2>Skill directory</h2>
+    <p>Every skill has its own profile and level. Unknown levels are not guessed.</p>
+    <div id="skillDirectory" class="grid"></div>
+  </div>
+</section>
+
+<!-- LIFE MAP -->
+
+<section id="lifemap" class="section">
+  <div class="kicker">YOUR DEVELOPMENT STRUCTURE</div>
+  <h1>Life Map</h1>
+  <p>Explore your abilities, branches and specialisations.</p>
+
+  <div class="grid">
+    <button class="card"><strong>01 · Intelligence</strong><span>Knowledge, learning, memory and research.</span></button>
+    <button class="card"><strong>02 · Strategy</strong><span>Planning, decisions and systems.</span></button>
+    <button class="card"><strong>03 · Communication</strong><span>Expression, listening and influence.</span></button>
+    <button class="card"><strong>04 · Creation</strong><span>Ideas, design and making.</span></button>
+    <button class="card"><strong>05 · Leadership & Team</strong><span>People, collaboration and leadership.</span></button>
+    <button class="card"><strong>06 · Resilience & Independence</strong><span>Adaptability and personal freedom.</span></button>
+    <button class="card"><strong>07 · Specialisations</strong><span>Your applied areas of expertise.</span></button>
+  </div>
+
+  <div class="panel">
+    <h2>How the map grows</h2>
+    <p>Attributes → Branches → Skills → Subskills → Specialisations → Projects.</p>
+    <p class="small">These are structural categories, not unlocked abilities.</p>
+  </div>
+</section>
+
+<!-- CONNECTIONS -->
+
+<section id="connections" class="section">
+  <div class="kicker">THE KNOWLEDGE NETWORK</div>
+  <h1>Connections</h1>
+  <p>See how different parts of your life and development support one another.</p>
+
+  <div class="panel">
+    <h2>Example connection pathway</h2>
+    <div class="connection">
+      <div class="node"><strong>INTELLIGENCE</strong><br><span class="small">Development area</span></div>
+      <div class="connection">
+        <div class="node"><strong>Knowledge · Level 90</strong><br><span class="small">Player-entered level</span></div>
+        <div class="node"><strong>Research</strong><br><span class="small">Related capability · level not shown</span></div>
+      </div>
+      <div class="node"><strong>SPECIALISATIONS</strong><br><span class="small">Business · Psychology · Game Development · Hospitality</span></div>
+      <div class="node"><strong>PROJECTS & MISSIONS</strong><br><span class="small">Apply skills, gather evidence and review outcomes</span></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><strong>Skills ↔ Branches</strong><span>A skill can support multiple areas.</span></div>
+    <div class="card"><strong>Skills ↔ Projects</strong><span>Projects apply your abilities.</span></div>
+    <div class="card"><strong>Missions ↔ Evidence</strong><span>Completed work supports assessment.</span></div>
+    <div class="card"><strong>Evidence ↔ Progression</strong><span>Evidence informs recommendations.</span></div>
+    <div class="card"><strong>Archive ↔ Knowledge</strong><span>Saved learning supports development.</span></div>
+    <div class="card"><strong>AI ↔ Player</strong><span>AI proposes. You decide.</span></div>
+  </div>
+
+  <p class="small">This is the first visual model. Live editable links will be added as the data engine develops.</p>
+</section>
+
+<!-- BRAIN ARCHIVE -->
 
 <section id="archive" class="section">
-  <h2>01 · Brain Archive</h2>
+  <h1>Brain Archive</h1>
   <p>Your central knowledge and development record.</p>
   <div class="panel">
-    <label>ARCHIVE ENTRY TITLE</label>
+    <label>ENTRY TITLE</label>
     <input id="archiveTitle" placeholder="What have you learned?">
     <label>DETAILS</label>
-    <textarea id="archiveBody" rows="4" placeholder="Record knowledge, evidence or observations..."></textarea>
-    <button class="primary" onclick="addArchive()">Save archive entry</button>
+    <textarea id="archiveBody" rows="4" placeholder="Record knowledge or evidence..."></textarea>
+    <button class="primary" onclick="addArchive()">Save entry</button>
   </div>
-  <div class="panel">
-    <h3>Saved knowledge</h3>
-    <div id="archiveList"></div>
-  </div>
+  <div class="panel"><h2>Saved knowledge</h2><div id="archiveList"></div></div>
 </section>
 
+<!-- BRAIN TREE -->
+
 <section id="tree" class="section">
-  <h2>02 · Brain Tree</h2>
+  <h1>Brain Tree</h1>
   <p>Your abilities develop through evidence. Nothing unlocks without your approval.</p>
-  <div id="treeList"></div>
+  <div id="treeList" class="panel"></div>
   <div class="panel">
-    <h3>Propose a new ability</h3>
+    <h2>Propose an ability</h2>
     <input id="abilityName" placeholder="Ability name">
     <input id="abilityBranch" placeholder="Branch">
     <button class="primary" onclick="proposeAbility()">Submit proposal</button>
   </div>
   <div class="panel">
-    <h3>Unlock authority</h3>
-    <p>The AI can assess and recommend. Only the player can approve an unlock.</p>
+    <h2>Player authority</h2>
+    <p>The AI can assess and recommend. Only you can approve or activate an unlock.</p>
   </div>
 </section>
 
+<!-- MISSIONS -->
+
 <section id="missions" class="section">
-  <h2>03 · Mission Centre</h2>
+  <h1>Mission Centre</h1>
   <p>Turn ambitions into measurable missions.</p>
   <div class="panel">
     <label>MISSION TITLE</label>
     <input id="missionTitle" placeholder="Enter mission">
-    <label>MISSION DESCRIPTION</label>
+    <label>DESCRIPTION</label>
     <textarea id="missionDescription" rows="3" placeholder="What needs to be achieved?"></textarea>
     <button class="primary" onclick="addMission()">Create mission</button>
   </div>
-  <div class="panel">
-    <h3>Your missions</h3>
-    <div id="missionList"></div>
-  </div>
+  <div class="panel"><h2>Your missions</h2><div id="missionList"></div></div>
 </section>
 
+<!-- ACHIEVEMENTS -->
+
 <section id="achievements" class="section">
-  <h2>04 · Achievement Archive</h2>
+  <h1>Achievement Archive</h1>
   <p>A record of completed work and demonstrated outcomes.</p>
   <div class="panel">
     <label>ACHIEVEMENT</label>
@@ -239,160 +447,75 @@ footer {
   <div class="panel"><div id="achievementList"></div></div>
 </section>
 
+<!-- EVOLUTION -->
+
 <section id="evolution" class="section">
-  <h2>05 · Evolution Chamber</h2>
+  <h1>Evolution Chamber</h1>
   <p>Explore potential improvements and future development.</p>
   <div class="panel">
-    <h3>Evolution proposals</h3>
-    <div id="evolutionList">
-      <div class="item">Execution Intelligence — develop consistent action.</div>
-      <div class="item">Communication Intelligence — improve message effectiveness.</div>
-      <div class="item">Potential Discovery — identify emerging capabilities.</div>
-    </div>
+    <div class="item">Execution Intelligence — develop consistent action.</div>
+    <div class="item">Communication Intelligence — improve message effectiveness.</div>
+    <div class="item">Potential Discovery — identify emerging capabilities.</div>
     <p class="small">Proposals are not activated abilities.</p>
   </div>
 </section>
 
-<section id="ai" class="section">
-  <h2>06 · Matt's Level AI</h2>
-  <p>Your personal development architect and command centre.</p>
+<!-- AI -->
 
+<section id="ai" class="section">
+  <h1>Matt's Level AI</h1>
+  <p>Your personal development architect and command centre.</p>
   <div class="panel">
-    <h3>AI operating principles</h3>
+    <h2>AI operating principles</h2>
     <div class="item">01 · Analyse evidence, not assumptions.</div>
     <div class="item">02 · Identify strengths and development gaps.</div>
     <div class="item">03 · Recommend missions and progression.</div>
     <div class="item">04 · Preserve player control.</div>
     <div class="item">05 · Never invent completed work.</div>
   </div>
-
   <div class="panel">
-    <h3>Command centre</h3>
-    <p>Give your development AI an instruction.</p>
-
-    <textarea id="aiCommand" rows="4"
-      placeholder="What should I analyse or help you achieve?"></textarea>
-
-    <button class="primary" onclick="runAICommand()">
-      Run command
-    </button>
-
-    <div class="item" id="aiResponse">
-      Awaiting your instruction...
-    </div>
+    <h2>Command centre</h2>
+    <textarea id="aiCommand" rows="4" placeholder="What should I analyse or help you achieve?"></textarea>
+    <button class="primary" onclick="runAICommand()">Run command</button>
+    <div class="item" id="aiResponse">Awaiting your instruction...</div>
   </div>
-
   <div class="panel">
-    <h3>Development notes</h3>
-    <textarea id="aiNote" rows="3"
-      placeholder="Save a note for future analysis..."></textarea>
-    <button class="primary" onclick="saveNote()">
-      Save note
-    </button>
+    <h2>Development notes</h2>
+    <textarea id="aiNote" rows="3" placeholder="Save a note..."></textarea>
+    <button class="primary" onclick="saveNote()">Save note</button>
     <p id="noteStatus" class="small"></p>
   </div>
 </section>
 
-<nav>
+<!-- NAVIGATION -->
+
+<nav id="navigation">
   <button class="active" onclick="showSection('dashboard',this)">Dashboard</button>
+  <button onclick="showSection('lifemap',this)">Life Map</button>
+  <button onclick="showSection('connections',this)">Connections</button>
+  <button onclick="showSection('profile',this)">Player Profile</button>
   <button onclick="showSection('archive',this)">Brain Archive</button>
   <button onclick="showSection('tree',this)">Brain Tree</button>
   <button onclick="showSection('missions',this)">Mission Centre</button>
   <button onclick="showSection('achievements',this)">Achievements</button>
   <button onclick="showSection('evolution',this)">Evolution</button>
-  <button onclick="showSection('ai',this)">Matt's Level AI</button>
+  <button onclick="showSection('ai',this)">Matt's AI</button>
 </nav>
+
 </main>
 
 <footer>
-  LIFE OS67 · BUILD YOUR POTENTIAL · VERSION 0.1
-  <br>Local browser storage enabled
+LIFE OS67 · BUILD YOUR POTENTIAL · V0.2<br>
+Local browser storage enabled
 </footer>
 
 <script>
-function runAICommand() {
-  const field = document.getElementById("aiCommand");
-  const output = document.getElementById("aiResponse");
-  const command = field.value.trim().toLowerCase();
-
-  if (!command) {
-    output.textContent = "Enter a command first.";
-    return;
-  }
-
-  const missionCount = data.missions.length;
-  const achievementCount = data.achievements.length;
-  const archiveCount = data.archive.length;
-  const abilityCount = data.abilities.length;
-
-  let response = "I can analyse saved missions, achievements, archive entries and ability proposals. Try: analyse my progress, show my weaknesses, or create my next mission.";
-
-  if (command.includes("weakness")) {
-    response = "I cannot reliably identify your skill weaknesses yet. The prototype does not contain your full skill profiles or supporting evidence.";
-
-  } else if (
-    command.includes("progress") ||
-    command.includes("summary") ||
-    command.includes("analyse") ||
-    command.includes("analyze")
-  ) {
-    response =
-      "LOCAL RECORD ANALYSIS\n\n" +
-      "Missions recorded: " + missionCount +
-      "\nAchievements recorded: " + achievementCount +
-      "\nBrain Archive entries: " + archiveCount +
-      "\nAbility proposals: " + abilityCount +
-      "\n\nThis analysis only covers records saved in this browser.";
-
-  } else if (
-    command.includes("mission") &&
-    (
-      command.includes("create") ||
-      command.includes("next") ||
-      command.includes("recommend")
-    )
-  ) {
-    const title = "Review and evidence one development priority";
-    const description =
-      "Choose one skill you want to improve. Record your current level and supporting evidence, then define one measurable action to practise this week. Submit the result for review.";
-
-    data.missions.unshift({
-      title: title,
-      description: description,
-      status: "Available"
-    });
-
-    save();
-    render();
-
-    response =
-      "MISSION ADDED\n\n" +
-      title + "\n\n" +
-      description +
-      "\n\nStatus: Available. This is not a completed mission. No XP awarded.";
-
-  } else if (
-    command.includes("unlock") ||
-    command.includes("evolve")
-  ) {
-    response = "PLAYER APPROVAL REQUIRED. I can assess and recommend Brain Tree evolutions, but only you can approve or activate an unlock.";
-
-  } else if (
-    command.includes("xp") ||
-    command.includes("level")
-  ) {
-    response = "Progression is not yet connected to live mission evidence. The dashboard's Level 04 and 515 XP are display values. This command engine will not change them.";
-  }
-
-  output.textContent = response;
-}
-
 const defaults = {
-  archive: [],
-  missions: [],
-  achievements: [],
-  abilities: [],
-  note: ""
+  archive:[],
+  missions:[],
+  achievements:[],
+  abilities:[],
+  note:""
 };
 
 let data;
@@ -409,17 +532,35 @@ function save() {
 
 function showSection(id,button) {
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  const target=document.getElementById(id);
+  if(target) target.classList.add("active");
+
   document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
   if(button) button.classList.add("active");
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function safe(value) {
+  return String(value||"").replace(/[&<>"']/g,c=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[c]);
 }
 
 function addArchive() {
   const title=document.getElementById("archiveTitle").value.trim();
   const body=document.getElementById("archiveBody").value.trim();
   if(!title) return alert("Enter a title first.");
-  data.archive.unshift({title,body,date:new Date().toLocaleString()});
+
+  data.archive.unshift({
+    title,body,date:new Date().toLocaleString()
+  });
   save();render();
+
   document.getElementById("archiveTitle").value="";
   document.getElementById("archiveBody").value="";
 }
@@ -428,8 +569,12 @@ function addMission() {
   const title=document.getElementById("missionTitle").value.trim();
   const description=document.getElementById("missionDescription").value.trim();
   if(!title) return alert("Enter a mission title.");
-  data.missions.unshift({title,description,status:"Available"});
+
+  data.missions.unshift({
+    title,description,status:"Available"
+  });
   save();render();
+
   document.getElementById("missionTitle").value="";
   document.getElementById("missionDescription").value="";
 }
@@ -438,8 +583,12 @@ function addAchievement() {
   const title=document.getElementById("achievementTitle").value.trim();
   const evidence=document.getElementById("achievementEvidence").value.trim();
   if(!title||!evidence) return alert("Enter an achievement and its evidence.");
-  data.achievements.unshift({title,evidence,date:new Date().toLocaleString()});
+
+  data.achievements.unshift({
+    title,evidence,date:new Date().toLocaleString()
+  });
   save();render();
+
   document.getElementById("achievementTitle").value="";
   document.getElementById("achievementEvidence").value="";
 }
@@ -448,8 +597,10 @@ function proposeAbility() {
   const name=document.getElementById("abilityName").value.trim();
   const branch=document.getElementById("abilityBranch").value.trim();
   if(!name) return alert("Enter an ability name.");
+
   data.abilities.push({name,branch,status:"Proposed"});
   save();render();
+
   document.getElementById("abilityName").value="";
   document.getElementById("abilityBranch").value="";
 }
@@ -460,43 +611,141 @@ function saveNote() {
   document.getElementById("noteStatus").textContent="Saved locally.";
 }
 
-function safe(value) {
-  return String(value||"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  })[c]);
-}
-
-function render() {
-  document.getElementById("archiveList").innerHTML=data.archive.map(x=>
-    `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.body)}</p><span class="small">${safe(x.date)}</span></div>`
-  ).join("")||"<p>No entries yet.</p>";
-
-  document.getElementById("missionList").innerHTML=data.missions.map((x,i)=>
-    `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.description)}</p><span class="tag">${safe(x.status)}</span><br><button onclick="missionStatus(${i})">Change status</button></div>`
-  ).join("")||"<p>No missions created yet.</p>";
-
-  document.getElementById("achievementList").innerHTML=data.achievements.map(x=>
-    `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.evidence)}</p><span class="small">${safe(x.date)}</span></div>`
-  ).join("")||"<p>No achievements recorded yet.</p>";
-
-  document.getElementById("treeList").innerHTML=data.abilities.map(x=>
-    `<div class="item"><strong>${safe(x.name)}</strong><p>${safe(x.branch)}</p><span class="tag">${safe(x.status)}</span></div>`
-  ).join("")||"<p>No additional ability proposals yet.</p>";
-
-  document.getElementById("aiNote").value=data.note;
-}
-
 function missionStatus(i) {
-  const statuses=["Available","Accepted","In Progress","Submitted for Review","Completed","Rejected","Archived"];
+  const statuses=[
+    "Available","Accepted","In Progress",
+    "Submitted for Review","Completed",
+    "Rejected","Archived"
+  ];
+
   const current=statuses.indexOf(data.missions[i].status);
-  const next=prompt("Enter next status:\n"+statuses.join(", "),statuses[(current+1)%statuses.length]);
+  const next=prompt(
+    "Enter next status:\n"+statuses.join(", "),
+    statuses[(current+1)%statuses.length]
+  );
+
   if(statuses.includes(next)) {
     data.missions[i].status=next;
     save();render();
   }
 }
 
+function runAICommand() {
+  const field=document.getElementById("aiCommand");
+  const output=document.getElementById("aiResponse");
+  const command=field.value.trim().toLowerCase();
+
+  if(!command) {
+    output.textContent="Enter a command first.";
+    return;
+  }
+
+  let response=
+    "I can analyse local records. Try: analyse my progress, show my weaknesses, or create my next mission.";
+
+  if(command.includes("weakness")) {
+    response="I cannot reliably identify your weaknesses yet. Your full skill profiles and supporting evidence need to be connected first.";
+
+  } else if(command.includes("progress")||
+            command.includes("summary")||
+            command.includes("analyse")||
+            command.includes("analyze")) {
+
+    response=
+      "LOCAL RECORD ANALYSIS\n\n"+
+      "Missions: "+data.missions.length+
+      "\nAchievements: "+data.achievements.length+
+      "\nArchive entries: "+data.archive.length+
+      "\nAbility proposals: "+data.abilities.length+
+      "\n\nThis prototype only analyses records saved in this browser.";
+
+  } else if(command.includes("mission")&&
+           (command.includes("create")||
+            command.includes("next")||
+            command.includes("recommend"))) {
+
+    const title="Review and evidence one development priority";
+    const description="Choose one skill to improve. Record your current level and supporting evidence. Define one measurable action to practise this week.";
+
+    data.missions.unshift({
+      title,description,status:"Available"
+    });
+    save();render();
+
+    response="MISSION ADDED\n\n"+title+
+      "\n\n"+description+
+      "\n\nStatus: Available. No XP awarded.";
+
+  } else if(command.includes("unlock")||
+            command.includes("evolve")) {
+
+    response="PLAYER APPROVAL REQUIRED. I can assess and recommend Brain Tree evolutions, but only you can approve or activate an unlock.";
+
+  } else if(command.includes("xp")||
+            command.includes("level")) {
+
+    response="Progression is not connected to live mission evidence yet. The dashboard's Level 04 and 515 XP are display values. This command will not change them.";
+  }
+
+  output.textContent=response;
+}
+
+function render() {
+  document.getElementById("archiveList").innerHTML=
+    data.archive.map(x=>
+      `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.body)}</p><span class="small">${safe(x.date)}</span></div>`
+    ).join("") || "<p>No entries yet.</p>";
+
+  document.getElementById("missionList").innerHTML=
+    data.missions.map((x,i)=>
+      `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.description)}</p><span class="tag">${safe(x.status)}</span><br><button onclick="missionStatus(${i})">Change status</button></div>`
+    ).join("") || "<p>No missions created yet.</p>";
+
+  document.getElementById("achievementList").innerHTML=
+    data.achievements.map(x=>
+      `<div class="item"><strong>${safe(x.title)}</strong><p>${safe(x.evidence)}</p><span class="small">${safe(x.date)}</span></div>`
+    ).join("") || "<p>No achievements recorded yet.</p>";
+
+  document.getElementById("treeList").innerHTML=
+    data.abilities.map(x=>
+      `<div class="item"><strong>${safe(x.name)}</strong><p>${safe(x.branch)}</p><span class="tag">${safe(x.status)}</span></div>`
+    ).join("") || "<p>No additional ability proposals yet.</p>";
+
+  document.getElementById("aiNote").value=data.note;
+}
+
+const skillExamples=[
+  {name:"Knowledge",branch:"Intelligence",level:90},
+  {name:"Research",branch:"Intelligence",level:null},
+  {name:"Learning",branch:"Intelligence",level:null},
+  {name:"Memory",branch:"Intelligence",level:null},
+  {name:"Planning",branch:"Strategy",level:null},
+  {name:"Decision Making",branch:"Strategy",level:null}
+];
+
+function renderSkills() {
+  const host=document.getElementById("skillDirectory");
+  host.innerHTML=skillExamples.map(skill=>
+    `<button class="card" onclick="openSkill('${safe(skill.name)}','${safe(skill.branch)}',${skill.level===null?"null":skill.level})">
+      <strong>${safe(skill.name)}</strong>
+      <div class="skill-level">${skill.level===null?"—":skill.level+"/100"}</div>
+      <div class="skill-track"><i style="width:${skill.level||0}%"></i></div>
+      <span>${safe(skill.branch)} · ${skill.level===null?"Level not shown":"Player-entered"}</span>
+    </button>`
+  ).join("");
+}
+
+function openSkill(name,branch,level) {
+  alert(
+    name+"\n\nBranch: "+branch+
+    "\nCurrent level: "+(level===null?"Not entered":level+"/100")+
+    "\n\nThis is an individual skill preview. Full evidence and connection editing will be added in the next development stage."
+  );
+}
+
 render();
+renderSkills();
 </script>
+
 </body>
 </html>
