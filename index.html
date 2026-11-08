@@ -585,6 +585,34 @@ data = {...defaults,...data};
 
 function save() {
   localStorage.setItem("lifeos67",JSON.stringify(data));
+}function saveSkillProfile() {
+  const name = document.getElementById("skillPanelName").textContent;
+  const levelInput = document.getElementById("editSkillLevel");
+  const evidence = document.getElementById("editSkillEvidence").value;
+  const connections = document.getElementById("editSkillConnections").value;
+  const development = document.getElementById("editSkillDevelopment").value;
+
+  const level = levelInput.value === "" ? null : Number(levelInput.value);
+
+  if (level !== null && (!Number.isInteger(level) || level < 1 || level > 100)) {
+    alert("Enter a whole number between 1 and 100.");
+    return;
+  }
+
+  if (!data.skillProfiles) data.skillProfiles = {};
+
+  data.skillProfiles[name] = {
+    level,
+    evidence,
+    connections,
+    development,
+    updatedAt: new Date().toISOString()
+  };
+
+  save();
+
+  document.getElementById("skillSaveMessage").textContent =
+    "Skill profile saved successfully.";
 }
 
 function showSection(id,button) {
