@@ -326,6 +326,46 @@ footer {
     <p>Every skill has its own profile and level. Unknown levels are not guessed.</p>
     <div id="skillDirectory" class="grid"></div>
   </div>
+
+<div id="skillProfilePanel" class="panel" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div class="kicker">INDIVIDUAL SKILL PROFILE</div>
+    <button onclick="closeSkill()">Close ×</button>
+  </div>
+
+  <h2 id="skillPanelName">Skill name</h2>
+  <span class="tag" id="skillPanelBranch">Branch</span>
+
+  <div class="skill-level" id="skillPanelLevel">—</div>
+  <div class="skill-track">
+    <i id="skillPanelBar" style="width:0%"></i>
+  </div>
+
+  <div class="item">
+    <strong>Overview</strong>
+    <p id="skillPanelDescription">Skill description will appear here.</p>
+  </div>
+
+  <div class="item">
+    <strong>Evidence</strong>
+    <p id="skillPanelEvidence">No evidence recorded yet.</p>
+  </div>
+
+  <div class="item">
+    <strong>Connections</strong>
+    <p id="skillPanelConnections">Related skills and projects will appear here.</p>
+  </div>
+
+  <div class="item">
+    <strong>Development</strong>
+    <p id="skillPanelDevelopment">Development recommendations will appear here.</p>
+  </div>
+
+  <div class="item">
+    <strong>History</strong>
+    <p id="skillPanelHistory">No assessment history recorded yet.</p>
+  </div>
+</div>
 </section>
 
 <!-- LIFE MAP -->
