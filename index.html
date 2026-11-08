@@ -775,12 +775,39 @@ function renderSkills() {
   ).join("");
 }
 
+
 function openSkill(name,branch,level) {
-  alert(
-    name+"\n\nBranch: "+branch+
-    "\nCurrent level: "+(level===null?"Not entered":level+"/100")+
-    "\n\nThis is an individual skill preview. Full evidence and connection editing will be added in the next development stage."
-  );
+  document.getElementById("skillPanelName").textContent=name;
+  document.getElementById("skillPanelBranch").textContent=branch;
+
+  document.getElementById("skillPanelLevel").textContent=
+    level===null?"Level not entered":level+"/100";
+
+  document.getElementById("skillPanelBar").style.width=
+    level===null?"0%":level+"%";
+
+  document.getElementById("skillPanelDescription").textContent=
+    "Your individual "+name+" capability within "+branch+".";
+
+  document.getElementById("skillPanelEvidence").textContent=
+    "No supporting evidence recorded yet.";
+
+  document.getElementById("skillPanelConnections").textContent=
+    "Related skills, specialisations and projects will be connected here.";
+
+  document.getElementById("skillPanelDevelopment").textContent=
+    "Development recommendations will be added as evidence is assessed.";
+
+  document.getElementById("skillPanelHistory").textContent=
+    "No assessment history recorded yet.";
+
+  const panel=document.getElementById("skillProfilePanel");
+  panel.style.display="block";
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function closeSkill() {
+  document.getElementById("skillProfilePanel").style.display="none";
 }
 
 render();
