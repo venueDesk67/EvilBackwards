@@ -822,35 +822,57 @@ function renderSkills() {
 
 
 function openSkill(name,branch,level) {
-  document.getElementById("skillPanelName").textContent=name;
-  document.getElementById("skillPanelBranch").textContent=branch;
+  function openSkill(name,branch,level) {
+  const saved = data.skillProfiles?.[name] || {};
 
-  document.getElementById("skillPanelLevel").textContent=
-    level===null?"Level not entered":level+"/100";
+  const currentLevel = saved.level !== undefined
+    ? saved.level
+    : level;
 
-  document.getElementById("skillPanelBar").style.width=
-    level===null?"0%":level+"%";
+  document.getElementById("skillPanelName").textContent = name;
+  document.getElementById("skillPanelBranch").textContent = branch;
 
-  document.getElementById("skillPanelDescription").textContent=
-    "Your individual "+name+" capability within "+branch+".";
+  document.getElementById("skillPanelLevel").textContent =
+    currentLevel === null ? "Level not entered" : currentLevel + "/100";
 
-  document.getElementById("skillPanelEvidence").textContent=
-    "No supporting evidence recorded yet.";
+  document.getElementById("skillPanelBar").style.width =
+    currentLevel === null ? "0%" : currentLevel + "%";
 
-  document.getElementById("skillPanelConnections").textContent=
-    "Related skills, specialisations and projects will be connected here.";
+  document.getElementById("skillPanelDescription").textContent =
+    "Your individual " + name + " capability within " + branch + ".";
 
-  document.getElementById("skillPanelDevelopment").textContent=
-    "Development recommendations will be added as evidence is assessed.";
+  document.getElementById("editSkillLevel").value =
+    currentLevel === null ? "" : currentLevel;
 
-  document.getElementById("skillPanelHistory").textContent=
-    "No assessment history recorded yet.";
+  document.getElementById("editSkillEvidence").value =
+    saved.evidence || "";
 
-  const panel=document.getElementById("skillProfilePanel");
-  panel.style.display="block";
+  document.getElementById("editSkillConnections").value =
+    saved.connections || "";
+
+  document.getElementById("editSkillDevelopment").value =
+    saved.development || "";
+
+  document.getElementById("skillPanelEvidence").textContent =
+    saved.evidence || "No supporting evidence recorded yet.";
+
+  document.getElementById("skillPanelConnections").textContent =
+    saved.connections || "No connections recorded yet.";
+
+  document.getElementById("skillPanelDevelopment").textContent =
+    saved.development || "No development plan recorded yet.";
+
+  document.getElementById("skillPanelHistory").textContent =
+    saved.updatedAt
+      ? "Last updated: " + new Date(saved.updatedAt).toLocaleString()
+      : "No assessment history recorded yet.";
+
+  document.getElementById("skillSaveMessage").textContent = "";
+
+  const panel = document.getElementById("skillProfilePanel");
+  panel.style.display = "block";
   panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
-
 function closeSkill() {
   document.getElementById("skillProfilePanel").style.display="none";
 }
