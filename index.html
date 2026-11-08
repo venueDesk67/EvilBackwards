@@ -364,7 +364,24 @@ footer {
   <div class="item">
     <strong>History</strong>
     <p id="skillPanelHistory">No assessment history recorded yet.</p>
-  </div>
+<div class="panel" style="margin-top:18px">
+  <h3>Edit Skill Profile</h3>
+
+  <label for="editSkillLevel">Skill level (1–100)</label>
+  <input id="editSkillLevel" type="number" min="1" max="100" placeholder="Enter level">
+
+  <label for="editSkillEvidence">Evidence and experience</label>
+  <textarea id="editSkillEvidence" placeholder="What have you done to demonstrate this skill?"></textarea>
+
+  <label for="editSkillConnections">Connected skills, projects and knowledge</label>
+  <textarea id="editSkillConnections" placeholder="List related skills, projects and knowledge"></textarea>
+
+  <label for="editSkillDevelopment">Development plan</label>
+  <textarea id="editSkillDevelopment" placeholder="What would help you improve?"></textarea>
+
+  <button onclick="saveSkillProfile()">Save Skill Profile</button>
+  <p id="skillSaveMessage"></p>
+</div>  </div>
 </div>
 </section>
 
