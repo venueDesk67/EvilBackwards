@@ -1,0 +1,9 @@
+{
+  "name": "LIFE OS67 \u2014 The Brain Tree",
+  "short_name": "LIFE OS67",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#100d20",
+  "theme_color": "#100d20",
+  "description": "Matt's personal development RPG"
+}

@@ -1,0 +1,750 @@
+{
+  "schemaVersion": 1,
+  "player": {
+    "name": "Matt",
+    "title": "The Architect",
+    "xp": 515,
+    "historicalStartingLevel": 1,
+    "lifetimeXP": 515,
+    "calculatedLevel": 6
+  },
+  "historicalDevelopmentXP": {
+    "total": 515,
+    "transactions": [
+      {
+        "id": "MIS-008",
+        "name": "Mission Generator",
+        "xp": 40
+      },
+      {
+        "id": "MIS-009",
+        "name": "Progression Engine",
+        "xp": 50
+      },
+      {
+        "id": "MIS-010",
+        "name": "Evidence & Assessment Engine",
+        "xp": 50
+      },
+      {
+        "id": "MIS-011",
+        "name": "Knowledge Graph Engine",
+        "xp": 75
+      },
+      {
+        "id": "MIS-012",
+        "name": "Potential Discovery Engine",
+        "xp": 100
+      },
+      {
+        "id": "MIS-013",
+        "name": "Decision Intelligence Engine",
+        "xp": 100
+      },
+      {
+        "id": "MIS-014",
+        "name": "Execution Intelligence Engine",
+        "xp": 100
+      }
+    ],
+    "note": "The 515 historical XP is imported once into player XP and reconciled against the transaction ledger. Do not add it again."
+  },
+  "attributes": [
+    {
+      "id": "humility",
+      "name": "Humility",
+      "description": "Curiosity, openness and willingness to learn.",
+      "level": null
+    },
+    {
+      "id": "generosity",
+      "name": "Generosity",
+      "description": "Contribution, sharing and stewardship.",
+      "level": null
+    },
+    {
+      "id": "kindness",
+      "name": "Kindness",
+      "description": "Compassion, patience and constructive response.",
+      "level": null
+    },
+    {
+      "id": "diligence",
+      "name": "Diligence",
+      "description": "Purposeful effort, consistency and follow-through.",
+      "level": null
+    },
+    {
+      "id": "temperance",
+      "name": "Temperance",
+      "description": "Balance, self-regulation and wise limits.",
+      "level": null
+    },
+    {
+      "id": "gratitude",
+      "name": "Gratitude",
+      "description": "Appreciation, perspective and celebration of others.",
+      "level": null
+    },
+    {
+      "id": "integrity",
+      "name": "Integrity",
+      "description": "Values-led choices, respect and responsibility.",
+      "level": null
+    }
+  ],
+  "specialisations": [
+    {
+      "id": "S01",
+      "name": "Business & Entrepreneurship",
+      "average": 61.6666667,
+      "subskills": [
+        [
+          "Business knowledge",
+          55
+        ],
+        [
+          "Planning",
+          65
+        ],
+        [
+          "Development",
+          55
+        ],
+        [
+          "Entrepreneurship",
+          75
+        ],
+        [
+          "Marketing",
+          55
+        ],
+        [
+          "Operations",
+          65
+        ]
+      ],
+      "averageProvenance": "Calculated arithmetic mean of recovered AI-assessed subskill levels; not a separately recorded historical average."
+    },
+    {
+      "id": "S02",
+      "name": "Hospitality & Mixology",
+      "average": 81.6666667,
+      "subskills": [
+        [
+          "Hospitality",
+          85
+        ],
+        [
+          "Bartending",
+          90
+        ],
+        [
+          "Mixology",
+          85
+        ],
+        [
+          "Cocktails",
+          80
+        ],
+        [
+          "Customer service",
+          85
+        ],
+        [
+          "Guest experience",
+          80
+        ],
+        [
+          "Bar operations",
+          85
+        ],
+        [
+          "Restaurant operations",
+          65
+        ],
+        [
+          "Staff training",
+          70
+        ]
+      ],
+      "averageProvenance": "Calculated arithmetic mean of recovered AI-assessed subskill levels; not a separately recorded historical average."
+    },
+    {
+      "id": "S03",
+      "name": "Event Management",
+      "average": 68.75,
+      "subskills": [
+        [
+          "Planning",
+          70
+        ],
+        [
+          "Coordination",
+          65
+        ],
+        [
+          "Experience design",
+          85
+        ],
+        [
+          "Entertainment",
+          65
+        ],
+        [
+          "Supplier management",
+          55
+        ],
+        [
+          "Venue management",
+          75
+        ],
+        [
+          "Marketing",
+          65
+        ],
+        [
+          "Guest experience",
+          75
+        ]
+      ],
+      "averageProvenance": "Calculated arithmetic mean of recovered AI-assessed subskill levels; not a separately recorded historical average."
+    },
+    {
+      "id": "S04",
+      "name": "Psychology & Human Behaviour",
+      "average": 55.625,
+      "subskills": [
+        [
+          "Human behaviour",
+          55
+        ],
+        [
+          "Emotional intelligence",
+          50
+        ],
+        [
+          "Self-awareness",
+          80
+        ],
+        [
+          "Empathy",
+          60
+        ],
+        [
+          "Motivation",
+          65
+        ],
+        [
+          "Personality understanding",
+          45
+        ],
+        [
+          "Social dynamics",
+          65
+        ],
+        [
+          "Conflict psychology",
+          40
+        ]
+      ],
+      "averageProvenance": "Calculated arithmetic mean of recovered AI-assessed subskill levels; not a separately recorded historical average."
+    },
+    {
+      "id": "S05",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S06",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S07",
+      "name": "Game Development",
+      "average": 64.5,
+      "subskills": [
+        [
+          "Game design",
+          65
+        ],
+        [
+          "Mechanics",
+          70
+        ],
+        [
+          "World-building",
+          85
+        ],
+        [
+          "Narrative",
+          80
+        ],
+        [
+          "Level design",
+          65
+        ],
+        [
+          "Progression",
+          80
+        ],
+        [
+          "Character design",
+          70
+        ],
+        [
+          "UI",
+          65
+        ],
+        [
+          "Programming",
+          20
+        ],
+        [
+          "Production",
+          45
+        ]
+      ],
+      "averageProvenance": "Calculated arithmetic mean of recovered AI-assessed subskill levels; not a separately recorded historical average."
+    },
+    {
+      "id": "S08",
+      "name": "Pokémon Knowledge",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S09",
+      "name": "Education",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S10",
+      "name": "Finance",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S11",
+      "name": "Marketing",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S12",
+      "name": "Research",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S13",
+      "name": "Creative Writing & Comics",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S14",
+      "name": "Project Architecture",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S15",
+      "name": "Human Team Development",
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S16",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S17",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S18",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S19",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S20",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S21",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S22",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S23",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S24",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S25",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S26",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S27",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S28",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S29",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S30",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S31",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S32",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S33",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S34",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S35",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S36",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S37",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S38",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S39",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S40",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S41",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S42",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S43",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S44",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S45",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S46",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S47",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S48",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S49",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S50",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S51",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S52",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S53",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S54",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S55",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S56",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S57",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S58",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S59",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S60",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S61",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S62",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S63",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S64",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S65",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S66",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    },
+    {
+      "id": "S67",
+      "name": null,
+      "average": null,
+      "subskills": [],
+      "averageProvenance": "Unknown; not calculated because the required subskill levels are incomplete."
+    }
+  ],
+  "progression": {
+    "skillLevelScale": [
+      1,
+      100
+    ],
+    "skillLevelsPerSkill": 1,
+    "automaticUnlocks": true,
+    "flexibleSchedule": true
+  },
+  "provenanceRules": {
+    "historicalSubskillLevels": "AI-assessed historical records; not verified competencies",
+    "missingValues": "Unknown; never infer or fabricate",
+    "playerInput": "Player-provided until evidence-reviewed"
+  }
+}
